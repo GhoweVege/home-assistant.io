@@ -27,7 +27,7 @@ There is currently support for the following platforms within Home Assistant:
 
 ## Supported devices
 
-- [Vegetronix VegeHub](https://www.vegetronix.com/Products/) - Firmware **4.0 or later** - All variants
+- [Vegetronix VegeHub](https://www.vegetronix.com/Products/VG-HUB-RELAY/) - Firmware **4.0 or later** - All variants
 
 ## Setup
 
@@ -35,7 +35,7 @@ There is currently support for the following platforms within Home Assistant:
 
 The VegeHub can be connected to WiFi *without* the need of additional apps or cloud accounts. When powered on, the VegeHub creates a WiFi access point called "Vege_XX_XX" where the XX are different for each device. Simply connect to this network from a phone, tablet, or other similar device. The default passphrase to connect to the access point is ```vegetronix```. This can (and should) be changed in the WiFi settings.
 
-Once connected to the the network, you should automatically be directed by your device to log in to the network. Follow the prompt to be directed to the VegeHub's WiFi setup page, where you can scan for available networks, put in your WiFi network's credentials, change the device's name, and change the access point password. Press "Apply" and your VegeHub will reset the network connection and try to connect to the credentials you put in.
+Once connected to the network, you should automatically be directed by your device to log in to the network. Follow the prompt to be directed to the VegeHub's WiFi setup page, where you can scan for available networks, put in your WiFi network's credentials, change the device's name, and change the access point password. Press "Apply" and your VegeHub will reset the network connection and try to connect to the credentials you put in.
 
 ### Integration
 
@@ -47,7 +47,13 @@ There is currently no way to set up a VegeHub using {% term YAML %} in the 'conf
 
 ### Device Configuration
 
-Once set up, you can click on the VegeHub integration in ```Settings->Devices and Services```. Here you can click "Configure" next to your VegeHub's listing in "Integration entries", where you will be able to set the sensor data type for any sensor channels on your VegeHub, and also change the "Default actuator duration", which is the maximum amount of time that a command from Home Assistant will maintain control of a relay before releasing control back to the VegeHub's internal schedule.
+Once set up, you can click on the VegeHub integration in ```Settings->Devices and Services```. Here you can click "Configure" next to your VegeHub's listing in "Integration entries", where you will be able to set the sensor data type for any sensor channels on your VegeHub, and also change the "Default actuator duration", which is the maximum amount of time that a command from Home Assistant will maintain control of a relay before releasing control back to the VegeHub's internal schedule. It defaults to 5 minutes (300 seconds).
+
+The options for sensor data types are:
+
+- Raw Voltage (Default) - Display and store the sensor value as the raw voltage measured by the VegeHub on this channel.
+- VH400 - This sensor channel is connected to a [VH400](https://www.vegetronix.com/Products/VH400/) soil moisture sensor. Data will be converted from raw voltage into soil moisture percentage before displaying or storing it in Home Assistant.
+- THERM200 - This sensor channel is connected to a [THERM200](https://www.vegetronix.com/Products/THERM200/) soil temperature sensor. Data will be converted from raw voltage into temperature before displaying or storing it in Home Assistant.
 
 ### Device Settings
 
