@@ -24,6 +24,7 @@ ha_platforms:
   - switch
   - update
 ha_bluetooth: true
+ha_dhcp: true
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
@@ -31,7 +32,7 @@ ha_integration_type: device
 
 This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API. Optionally, local API calls, which include a WebSocket connection for (near) real-time updates and a Bluetooth connection, can be utilized for local connections.
 
-If your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered automatically.
+If your Home Assistant host can perform [DHCP discovery](https://www.home-assistant.io/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
 
 ## Prerequisites
 
@@ -76,6 +77,7 @@ Host:
 | Prebrew on time | Time prebrew wets the puck | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Prebrew off time | Time prebrew waits before turning on the pump | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Preinfusion time | Duration of preinfusion | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Smart standby time | Time until the machine will automatically stand by (if enabled) | all | - |
 
 
 ## Switches
@@ -84,6 +86,7 @@ Host:
 |-------------|-------------| ---------------------- |
 | Main        | Allows to turn machines on-/off | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
+| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all |
 
 ## Binary sensors
 
@@ -116,6 +119,7 @@ Host:
 |-------------|-------------| ------------------------| ---------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
+| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | all |
 
 ## Supported devices
 
