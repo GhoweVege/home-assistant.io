@@ -53,11 +53,23 @@ Once set up, you can click on the VegeHub integration in ```Settings->Devices an
 
 In the VegeHub integration page, if you click "1 device" under your VegeHub's listing, you will be taken to your Device Info page. Here you will see all the entities available from this VegeHub, and you can click the "Visit" link to be taken directly to the VegeHub's device settings interface. Here you can directly change setting on the VegeHub.
 
+## Power Management
+
+The VegeHub has two power modes:
+
+- Battery mode (default): Device sleeps after five minutes of inactivity
+- Power adapter mode: Device remains always active
+
+When in Power Adapter mode, the device will use significantly more power, so this mode should not be used when powering from batteries, as they will quickly be drained.
+
+To change the power mode, visit the [Hub's settings interface](#device-settings), go to the "Settings" page, and change the "Power source" to "Power adapter".
+
 ## Troubleshooting
 
 - Setup is failing
-  - Ensure that the VegeHub is on. In its default configuration the VegeHub goes to sleep after five minutes of inactivity, and only wakes up when it has sensor readings to send, or internally scheduled relays to flip. Simply press the button on your VegeHub to wake it up.
+  - Ensure that the VegeHub is awake by pressing the button on the board, or by disconnecting, and reconnecting power.
 - [Hub's settings interface](#device-settings) is not accessible
-  - Ensure that the VegeHub is on. In its default configuration the VegeHub goes to sleep after five minutes of inactivity, and only wakes up when it has sensor readings to send, or internally scheduled relays to flip. Simply press the button on your VegeHub to wake it up.
-- Actuators are not flipping when told to do so
-  - Ensure that the VegeHub is on. In its default configuration the VegeHub goes to sleep after five minutes of inactivity, and only wakes up when it has sensor readings to send, or internally scheduled relays to flip. Simply press the button on your VegeHub to wake it up. If you would like the VegeHub to always be available, visit the [Hub's settings interface](#device-settings), go to the "Settings" page, and change the "Power source" to "Power adapter". This means that your VegeHub will always be active, but should be powered from a power adapter rather than by batteries.
+  - Ensure that the VegeHub is awake by pressing the button on the board, or by disconnecting, and reconnecting power.
+- Actuators are not responding
+  - Ensure that the VegeHub is awake by pressing the button on the board, or by disconnecting, and reconnecting power.
+  - Consider switching to [power adapter mode](#power-management) for consistent response
