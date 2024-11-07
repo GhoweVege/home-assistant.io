@@ -5,7 +5,7 @@ ha_category:
   - Sensor
   - Switch
 ha_config_flow: true
-ha_release: 2024.12
+ha_release: 2024.11
 ha_iot_class: Local Push
 ha_codeowners:
   - '@ghowevege'
