@@ -37,9 +37,9 @@ The VegeHub can be connected to WiFi *without* the need of additional apps or cl
 
 Once connected to the network, you should automatically be directed by your device to log in to the network. Follow the prompt to be directed to the VegeHub's WiFi setup page, where you can scan for available networks, put in your WiFi network's credentials, change the device's name, and change the access point password.
 
-{% note title="Security Warning" %}
+{% warning %}
 It is crucial to change the default access point password. If you don't, anyone can easily access your VegeHub and potentially compromise your WiFi network credentials.
-{% endnote %}
+{% endwarning %}
 
 Press "Apply" and your VegeHub will reset the network connection and try to connect to the credentials you put in.
 
@@ -49,17 +49,7 @@ The VegeHub integration will automatically detect VegeHub devices that are conne
 
 Alternatively, a VegeHub can be added manually by going to `Settings->Devices and Services`, then click the "Add Integration" button, search for the VegeHub integration, and click on it. If your VegeHub is not already listed here, click "Setup another instance of Vegetronix VegeHub" where you will be prompted for the device's IP address in order to continue setup.
 
-There is currently no way to set up a VegeHub using {% term YAML %} in the 'configuration.yaml' file.
-
-### Device Configuration
-
-Once set up, you can click on the VegeHub integration in `Settings->Devices and Services`. Here you can click "Configure" next to your VegeHub's listing in "Integration entries", where you will be able to set the sensor data type for any sensor channels on your VegeHub, and also change the "Default actuator duration", which is the maximum number of seconds that a command from Home Assistant will maintain control of a relay before releasing control back to the VegeHub's internal schedule. It defaults to 5 minutes (300 seconds).
-
-The options for sensor data types are:
-
-- Raw Voltage (Default) - Display and store the sensor value as the raw voltage measured by the VegeHub on this channel.
-- VH400 - This sensor channel is connected to a [VH400](https://www.vegetronix.com/Products/VH400/) soil moisture sensor. Data will be converted from raw voltage into soil moisture percentage before displaying or storing it in Home Assistant.
-- THERM200 - This sensor channel is connected to a [THERM200](https://www.vegetronix.com/Products/THERM200/) soil temperature sensor. Data will be converted from raw voltage into temperature before displaying or storing it in Home Assistant.
+There is currently no way to set up a VegeHub using {% term YAML %} in the `configuration.yaml` file.
 
 ### Device Settings
 
